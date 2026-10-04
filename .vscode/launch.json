@@ -1,0 +1,41 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Debug Next.js server-side code (server components, cookies(), fetch)
+      // Run: npm run dev inside frontend/ first, then attach this
+      "name": "Frontend: attach to Next.js",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "restart": true,
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      // Debug Express backend with full breakpoint support
+      "name": "Backend: ts-node with inspect",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "--require", "ts-node/register",
+        "--inspect"
+      ],
+      "args": ["${workspaceFolder}/backend/src/index.ts"],
+      "cwd": "${workspaceFolder}/backend",
+      "env": { "NODE_ENV": "development" },
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      // Debug client-side React code directly in VS Code via Chrome
+      "name": "Frontend: debug in Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/frontend/src",
+      "sourceMaps": true
+    }
+  ]
+}
