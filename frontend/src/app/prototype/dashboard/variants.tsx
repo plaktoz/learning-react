@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
 import type { ApiUser } from "@/lib/api.types";
+import { UsageBar } from "@/components/usage-bar";
 
 // ─── Shared UI ───────────────────────────────────────────────────────────────
 
@@ -40,22 +41,6 @@ function LogoutButton() {
 
 function fmt(n: number, currency = "USD") {
   return n.toLocaleString("en-US", { style: "currency", currency });
-}
-
-function UsageBar({ used, limit }: { used: number; limit: number }) {
-  const pct = Math.round((used / limit) * 100);
-  const colour = pct >= 80 ? "bg-red-500" : pct >= 50 ? "bg-amber-400" : "bg-emerald-500";
-  return (
-    <div className="w-full">
-      <div className="flex justify-between text-xs text-muted-foreground mb-1">
-        <span>{fmt(used)} used</span>
-        <span>{pct}% of {fmt(limit)}</span>
-      </div>
-      <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
-        <div className={`h-full rounded-full ${colour}`} style={{ width: `${pct}%` }} />
-      </div>
-    </div>
-  );
 }
 
 // ─── Variant A — Classic card grid ───────────────────────────────────────────
