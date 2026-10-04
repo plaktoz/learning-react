@@ -11,27 +11,27 @@
 !.yarn/versions
 
 # testing
-/coverage
+**/coverage
 
 # next.js
-/.next/
-/out/
+**/.next/
+**/out/
 
 # production
-/build
+**/build
 
 # misc
-.DS_Store
+**.DS_Store
 *.pem
 
 # debug
-npm-debug.log*
+**/npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env*
+**/.env*
 
 # vercel
 .vercel
